@@ -3,6 +3,12 @@ C++ Library using Curl to simplify communicating with web api's
 
 [![Build Status](https://travis-ci.org/felix-hellman/WebCurl.svg?branch=master)](https://travis-ci.org/felix-hellman/WebCurl)
 
-Requirements to 'make':
-* clang++ compiler
-* curl library (I used libcurl4-gnutls-dev) 
+##Installation Ubuntu 17.10
+```bash
+libc++abi-dev
+build-essential
+libcurl4-gnutls-dev
+libc++-dev
+clang
+sudo ln -s /usr/include/locale.h /usr/include/xlocale.h
+```
