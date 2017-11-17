@@ -2,6 +2,10 @@
 #include "webhandler.h"
 #include <curl/curl.h>
 
+int kek()
+{
+	return 1337;
+}
 
 int main()
 {
