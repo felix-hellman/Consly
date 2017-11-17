@@ -1,8 +1,7 @@
 # WebCurl++
 C++ Library using Curl to simplify communicating with web api's 
 
-https://travis-ci.org/felix-hellman/WebCurl.svg?branch=master
-
+[![Build Status](https://travis-ci.org/felix-hellman/WebCurl.svg?branch=master)](https://travis-ci.org/felix-hellman/WebCurl)
 
 Requirements to 'make':
 * clang++ compiler
