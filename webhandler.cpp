@@ -22,10 +22,10 @@ void Webhandler::get(const std::string &url, std::string &buffer)
 	curl = curl_easy_init();
 	curl_easy_setopt(curl, CURLOPT_BUFFERSIZE, 102400L);
 	curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
-  	curl_easy_setopt(hnd, CURLOPT_MAXREDIRS, 50L);
+  	curl_easy_setopt(curl, CURLOPT_MAXREDIRS, 50L);
 	curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION,
                       curlCallback);
- 	curl_easy_setopt(curl, CURLOPT_WRITEDATA, buffer);	
+ 	curl_easy_setopt(curl, CURLOPT_WRITEDATA, &buffer);	
 
 	ret = curl_easy_perform(curl);
 	curl_easy_cleanup(curl);
