@@ -8,4 +8,4 @@
 !*.hpp
 !Makefile
 !.gitignore
-
+!.travis.yml
