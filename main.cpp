@@ -2,11 +2,6 @@
 #include "webhandler.h"
 #include <curl/curl.h>
 
-void printMagic()
-{
-	std::cout << "Hallo magix" << std::endl;
-}
-
 int main()
 {
 	Webhandler w;
