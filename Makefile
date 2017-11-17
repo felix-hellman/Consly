@@ -5,7 +5,7 @@ LFLAGS = -lcurl
 
 
 all: main
-	
+	rm *.o
 main: webhandler.o
 	$(CC) $(CFLAGS) main.cpp -o WebCurl++ webhandler.o web.o $(LFLAGS)
 webhandler.o: web.o
