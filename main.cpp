@@ -1,12 +1,15 @@
 #include <iostream>
+#include "webhandler.h"
 #include <curl/curl.h>
 
-using namespace std;
 
-//A extremely basic skeleton of the main function, haha
 int main()
 {
-	cout << "Hello World!\n";
+	Webhandler w;
+	std::string buffer;
+	w.get("https://www.google.se/",buffer);
+
+	std::cout << buffer << std::endl;
 
 	return 0;
 }
