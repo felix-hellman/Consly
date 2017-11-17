@@ -2,14 +2,14 @@
 
 size_t curlCallback(void *contents, size_t size,size_t nmemb, std::string &s) {
   size_t newLength = size * nmemb;
-  size_t oldLength = s->size();
+  size_t oldLength = s.size();
   try {
-    s->resize(oldLength + newLength);
+    s.resize(oldLength + newLength);
   } catch (std::bad_alloc &e) {
     return 0;
   }
 
   std::copy((char *)contents, (char *)contents + newLength,
-            s->begin() + oldLength);
+            s.begin() + oldLength);
   return size * nmemb;
 }
