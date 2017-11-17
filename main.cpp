@@ -2,11 +2,6 @@
 #include "webhandler.h"
 #include <curl/curl.h>
 
-int kek()
-{
-	return 1337;
-}
-
 void printMagic()
 {
 	std::cout << "Hallo magix" << std::endl;
