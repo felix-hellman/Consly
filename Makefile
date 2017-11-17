@@ -1,5 +1,5 @@
 CC = clang++
-CFLAGS = -std=c++14 -Wall -Werror 
+CFLAGS = -std=c++14 -Wall -Werror -stdlib=libc++ 
 LFLAGS = -lcurl
 
 
