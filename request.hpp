@@ -2,6 +2,7 @@
 
 #include <tuple>
 #include <vector>
+#include <string>
 
 class Request{
 
