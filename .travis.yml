@@ -7,8 +7,8 @@ compiler:
         - g++
 
 before_install:
-        - sudo add-apt-repository ppa:jonathonf/gcc-7.1 -y
         - sudo apt-get update
+        - sudo apt-get upgrade
         - sudo apt-get install build-essential libcurl4-gnutls-dev gcc-7 g++-7
 
 script:
