@@ -10,3 +10,4 @@
 !Makefile
 !.gitignore
 !.travis.yml
+!.clang-format
