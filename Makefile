@@ -1,16 +1,19 @@
 CC = g++
-CFLAGS = -std=c++14 -Wall
-LFLAGS = -lcurl
+CFLAGS =-std=c++14 -Wall
+LFLAGS =-lcurl
 
 
 
 all: main
 	rm *.o
 main: webhandler.o request.o web.o
-	$(CC) $(CFLAGS) main.cpp -o WebCurl++ $^ $(LFLAGS)
+	$(CC) $(CFLAGS) main.cpp -o WebCurl++ webhandler.o request.o web.o $(LFLAGS)
+
 webhandler.o: web.o request.o
-	$(CC) $(CFLAGS) webhandler.cpp -c
+	$(CC) $(CFLAGS) -c webhandler.cpp
+
 web.o:
-	$(CC) $(CFLAGS) web.cpp -c
-reqeuest.o:
-	$(CC) $(CFLAGS) reqeuest.cpp -c
+	$(CC) $(CFLAGS) -c web.cpp
+
+request.o:
+	$(CC) $(CFLAGS) -c request.cpp
