@@ -1,6 +1,6 @@
 #include "web.h"
 
-size_t curlCallback(void *contents, size_t size,size_t nmemb, std::string * s) {
+size_t curlCallback(void *contents, size_t size, size_t nmemb, std::string *s) {
   size_t newLength = size * nmemb;
   size_t oldLength = s->size();
   try {
