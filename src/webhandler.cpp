@@ -1,5 +1,4 @@
 #include "webhandler.h"
-#include "web.h"
 
 Webhandler::Webhandler()
 {
