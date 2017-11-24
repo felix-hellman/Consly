@@ -4,11 +4,11 @@ sudo: required
 os:
         - linux
 compiler:
-        - clang
+        - g++
 
 before_install:
         - sudo apt-get update
-        - sudo apt-get install build-essential libcurl4-gnutls-dev clang libc++-dev
+        - sudo apt-get install build-essential libcurl4-gnutls-dev 
 
 script:
         - make
