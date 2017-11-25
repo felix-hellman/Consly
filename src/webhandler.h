@@ -6,6 +6,7 @@
 #include <vector>
 #include "request.hpp"
 #include "web.h"
+#include "json.hpp"
 
 class Webhandler {
  private:
@@ -15,7 +16,7 @@ class Webhandler {
   Webhandler();
   Webhandler(bool verifySSL);
   ~Webhandler();
-  void get(Request &req) const;
-  void post(Request &req) const;
+  int get(Request &req) const;
+  int post(Request &req) const;
   CURL *curlSetup(Request &req) const;
 };

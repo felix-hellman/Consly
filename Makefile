@@ -1,16 +1,20 @@
 CC = g++
-CFLAGS =-std=c++14 -Wall
-LFLAGS =-lcurl
+CFLAGS =-std=c++14 -Wall -fPIC -I "src" -L.
+LFLAGS = -lcurl -lwebcurl
 
-
-
-all: main
+final: all
+	./test/test.sh
+	rm -rf ./tester
+	
+all: test
 	rm *.o
-main: webhandler.o request.o web.o json.o
-	$(CC) $(CFLAGS) src/main.cpp -o WebCurl++ $^ $(LFLAGS)
+test: webhandler.o
+	$(CC) $(CFLAGS) test/tester.cpp -o tester $(LFLAGS)
 
-webhandler.o: web.o request.o
+
+webhandler.o: web.o request.o json.o
 	$(CC) $(CFLAGS) -c src/webhandler.cpp
+	$(CC) -shared -o libwebcurl.so webhandler.o $^
 
 web.o:
 	$(CC) $(CFLAGS) -c src/web.cpp

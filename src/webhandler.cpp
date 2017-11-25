@@ -23,7 +23,7 @@ CURL *Webhandler::curlSetup(Request &req) const {
   return curl;
 }
 
-void Webhandler::get(Request &req) const {
+int Webhandler::get(Request &req) const {
   CURLcode ret;
   CURL *curl = nullptr;
   curl = this->curlSetup(req);
@@ -33,8 +33,9 @@ void Webhandler::get(Request &req) const {
     curl_easy_cleanup(curl);
     curl = NULL;
   }
+  return ret;
 }
-void Webhandler::post(Request &req) const {
+int Webhandler::post(Request &req) const {
   CURLcode ret;
   CURL *curl = NULL;
   curl_mime *mime = NULL;
@@ -63,4 +64,5 @@ void Webhandler::post(Request &req) const {
     curl_mime_free(mime);
     curl_slist_free_all(slist);
   }
+  return ret;
 }

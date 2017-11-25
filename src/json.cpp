@@ -30,3 +30,4 @@ JSON::JSONObject JSON::parse(const std::string &buffer)
 	}
 	return returnValue;
 }
+

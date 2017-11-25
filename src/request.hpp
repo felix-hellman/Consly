@@ -16,6 +16,7 @@ class Request {
   std::vector<std::string> headers;
   void clearBuffer();
   void addForm(const std::string &name, const std::string &data);
+  void addForm(const std::tuple<std::string,std::string> &tup);
   void addHeader(const std::string &headerfield);
   void setURL(const std::string &URL);
   std::string getURL() const;
