@@ -21,7 +21,7 @@ script:
 
 before_install:
         - sudo apt-get update -qq
-        - sudo apt-get install build-essential libcurl4-gnutls-dev curl
+        - sudo apt-get install build-essential libcurl4-openssl-dev curl
 notifactions:
         on_success: never
         on_failure: always

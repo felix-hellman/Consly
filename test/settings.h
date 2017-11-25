@@ -1,3 +1,3 @@
 #pragma once
 
-std::string serverURL = "192.168.0.108"; //Ip or domain of server running the php test software
+std::string serverURL = "80.78.219.71"; //Ip or domain of server running the php test software
