@@ -1,4 +1,4 @@
-CC = g++
+CC = $(CXX)
 CFLAGS =-std=c++14 -Wall -fPIC -I "src" -L. 
 LFLAGS = -lcurl -lwebcurl
 
