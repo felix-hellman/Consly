@@ -1,5 +1,5 @@
 CC = clang++
-CFLAGS =-std=c++14 -Wall -fPIC -I "src" -L.
+CFLAGS =-std=c++14 -Wall -fPIC -I "src" -L. -stdlib=libc++
 LFLAGS = -lcurl -lwebcurl
 
 final: all
