@@ -14,3 +14,4 @@ void Request::setURL(const std::string &URL) { this->URL = URL; }
 std::string Request::getURL() const { return URL; }
 std::string &Request::getBuffer() { return buffer; }
 std::string *Request::getBufferPointer() { return &buffer; }
+void Request::clearBuffer(){ this->buffer = ""; }

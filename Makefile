@@ -6,7 +6,7 @@ LFLAGS =-lcurl
 
 all: main
 	rm *.o
-main: webhandler.o request.o web.o
+main: webhandler.o request.o web.o json.o
 	$(CC) $(CFLAGS) src/main.cpp -o WebCurl++ $^ $(LFLAGS)
 
 webhandler.o: web.o request.o
@@ -17,3 +17,6 @@ web.o:
 
 request.o:
 	$(CC) $(CFLAGS) -c src/request.cpp
+
+json.o:
+	$(CC) $(CFLAGS) -c src/json.cpp
