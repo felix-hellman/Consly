@@ -3,6 +3,17 @@ sudo: required
 
 os:
         - linux
+addons:
+    apt:
+        sources:
+            - llvm-toolchain-precise
+            - ubuntu-toolchain-r-test
+        packages:
+            - clang-3.7
+            - g++-5
+            - gcc-5
+script:
+        - make
 compiler:
         - g++
 
