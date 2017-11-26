@@ -18,7 +18,6 @@ rm -rf WebCurl
 ### imgurupload.cpp
 ```cpp
 #include <iostream>
-#include <curl/curl.h>
 #include <webhandler.h>
 
 int main()
