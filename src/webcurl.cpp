@@ -1,15 +1,15 @@
-#include "webhandler.h"
+#include <webcurl>
 
-Webhandler::Webhandler() {
+WebCurl::WebCurl() {
   this->verifySSL = true;
   curl_global_init(CURL_GLOBAL_DEFAULT);
 }
-Webhandler::Webhandler(bool verifySSL) {
+WebCurl::WebCurl(bool verifySSL) {
   this->verifySSL = verifySSL;
   curl_global_cleanup();
 }
-Webhandler::~Webhandler() {}
-CURL *Webhandler::curlSetup(Request &req) const {
+WebCurl::~WebCurl() {}
+CURL *WebCurl::curlSetup(Request &req) const {
   CURL *curl = nullptr;
   curl = curl_easy_init();
   if (curl) {
@@ -23,7 +23,7 @@ CURL *Webhandler::curlSetup(Request &req) const {
   return curl;
 }
 
-int Webhandler::get(Request &req) const {
+int WebCurl::get(Request &req) const {
   CURLcode ret;
   CURL *curl = nullptr;
   curl = this->curlSetup(req);
@@ -35,7 +35,7 @@ int Webhandler::get(Request &req) const {
   }
   return ret;
 }
-int Webhandler::post(Request &req) const {
+int WebCurl::post(Request &req) const {
   CURLcode ret;
   CURL *curl = NULL;
   struct curl_slist *slist = NULL;

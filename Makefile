@@ -14,8 +14,8 @@ install: test
 	cp includes/* /usr/include
 
 webhandler.o: web.o request.o json.o
-	$(CC) $(CFLAGS) -c src/webhandler.cpp
-	$(CC) -shared -o libwebcurl.so webhandler.o $^
+	$(CC) $(CFLAGS) -c src/webcurl.cpp
+	$(CC) -shared -o libwebcurl.so webcurl.o $^
 	rm -rf *.o
 web.o:
 	$(CC) $(CFLAGS) -c src/web.cpp

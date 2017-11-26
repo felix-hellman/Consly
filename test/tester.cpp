@@ -1,9 +1,9 @@
-#include "webhandler.h"
 #include "settings.h"
 #include <iostream>
 #include <string>
 #include <vector>
 #include <tuple>
+#include <webcurl>
 
 int main(int argc, char ** argv){
 	
@@ -17,7 +17,7 @@ int main(int argc, char ** argv){
 		vec.push_back(tup);
 	}
 
-	Webhandler w;
+	WebCurl w;
 	
 	Request r;
 	r.setURL(serverURL);
