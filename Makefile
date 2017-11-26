@@ -1,22 +1,21 @@
 CC = $(CXX)
-CFLAGS =-std=c++14 -Wall -fPIC -I "src" -L .
+CFLAGS =-std=c++14 -Wall -fPIC -I "src"
+CFLAGS_TEST =-std=c++14 -Wall -I "src"
 LFLAGS = -lwebcurl -lcurl
 
+compile: webhandler.o
 
-install: all
+
+install: test
+	sudo cp libwebcurl.so /usr/lib
+	$(CC) $(CFLAGS_TEST) test/tester.cpp -o tester $(LFLAGS)
 	./test/test.sh
-	rm -rf tester
-	
-all: test
-	rm *.o
-test: webhandler.o
-	$(CC) $(CFLAGS) test/tester.cpp -o tester $(LFLAGS)
-
+	rm -rf ./tester	
 
 webhandler.o: web.o request.o json.o
 	$(CC) $(CFLAGS) -c src/webhandler.cpp
 	$(CC) -shared -o libwebcurl.so webhandler.o $^
-	sudo mv libwebcurl.so /usr/lib
+	rm -rf *.o
 web.o:
 	$(CC) $(CFLAGS) -c src/web.cpp
 

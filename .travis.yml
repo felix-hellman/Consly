@@ -17,7 +17,7 @@ addons:
             - g++-5
             - gcc-5
 script:
-        - make
+        - make ; sudo make install
 
 before_install:
         - sudo apt-get update -qq
