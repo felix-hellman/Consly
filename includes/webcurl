@@ -5,7 +5,7 @@
 #include <tuple>
 #include <vector>
 #include "request.hpp"
-#include "web.h"
+#include "web.hpp"
 #include "json.hpp"
 
 class WebCurl {
