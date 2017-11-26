@@ -1,10 +1,11 @@
 CC = $(CXX)
-CFLAGS =-std=c++14 -Wall -fPIC -I "src" -L. 
+CFLAGS =-std=c++14 -Wall -fPIC -I "src" -L .
 LFLAGS = -lcurl -lwebcurl
 
-final: all
+
+install: all
+	sudo mv libwebcurl.so /usr/lib
 	./test/test.sh
-	rm -rf ./tester
 	
 all: test
 	rm *.o
