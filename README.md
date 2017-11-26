@@ -7,5 +7,5 @@ C++ Library using Curl to simplify communicating with web api's
 ```bash
 git clone https://github.com/felix-hellman/WebCurl
 sudo apt install build-essential libcurl4-gnutls-dev python
-make & sudo make install
+make ; sudo make install
 ```
