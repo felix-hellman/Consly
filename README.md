@@ -6,6 +6,6 @@ C++ Library using Curl to simplify communicating with web api's
 ## Installation Ubuntu 17.10
 ```bash
 git clone https://github.com/felix-hellman/WebCurl
-sudo apt install libc++abi-dev build-essential libcurl4-gnutls-dev libc++-dev clang
-sudo ln -s /usr/include/locale.h /usr/include/xlocale.h
+sudo apt install build-essential libcurl4-gnutls-dev python
+make & sudo make install
 ```
