@@ -20,8 +20,7 @@ rm -rf WebCurl
 #include <iostream>
 #include <webcurl>
 
-int main()
-{
+int main(int argc, char ** argv){
 	WebCurl::Handler h;
 	WebCurl::Request r1,r2;
 
