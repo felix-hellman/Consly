@@ -1,0 +1,22 @@
+#pragma once
+
+#include <curl/curl.h>
+#include <string>
+#include <tuple>
+#include <vector>
+#include "request.hpp"
+#include "web.h"
+#include "json.hpp"
+
+class WebCurl {
+ private:
+  bool verifySSL;
+
+ public:
+  WebCurl();
+  WebCurl(bool verifySSL);
+  ~WebCurl();
+  int get(Request &req) const;
+  int post(Request &req) const;
+  CURL *curlSetup(Request &req) const;
+};
