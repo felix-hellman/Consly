@@ -7,6 +7,10 @@ CURL *WebCurl::Handler::curlSetup(Request &req) const {
   CURL *curl = nullptr;
   curl = curl_easy_init();
   if (curl) {
+    if (req.getSSL()) {
+      curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 1);
+      curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 1);
+    }
     curl_easy_setopt(curl, CURLOPT_BUFFERSIZE, 102400L);
     curl_easy_setopt(curl, CURLOPT_USERAGENT, "curl/7.56.0");
     curl_easy_setopt(curl, CURLOPT_URL, req.getURL().c_str());

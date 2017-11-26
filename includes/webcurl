@@ -1,23 +1,23 @@
 #pragma once
 
 #include <curl/curl.h>
+#include <algorithm>
+#include <sstream>
 #include <string>
 #include <tuple>
 #include <vector>
-#include <sstream>
-#include <algorithm>
-#include "request.hpp"
 #include "json.hpp"
+#include "request.hpp"
 
-namespace WebCurl{
-	class Handler {
-	 public:
-	  Handler();
-	  ~Handler();
-	  int get(Request &req) const;
-	  int post(Request &req) const;
-	  CURL *curlSetup(Request &req) const;
-	};
-	size_t curlCallback(void *contents, size_t size, size_t nmemb, std::string *s);
-	std::string percentEncode(const std::string &input);
-}
+namespace WebCurl {
+class Handler {
+ public:
+  Handler();
+  ~Handler();
+  int get(Request &req) const;
+  int post(Request &req) const;
+  CURL *curlSetup(Request &req) const;
+};
+size_t curlCallback(void *contents, size_t size, size_t nmemb, std::string *s);
+std::string percentEncode(const std::string &input);
+}  // namespace WebCurl

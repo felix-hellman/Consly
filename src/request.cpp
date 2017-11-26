@@ -4,7 +4,7 @@ WebCurl::Request::Request() { this->verifySSL = true; }
 WebCurl::Request::~Request() {}
 
 bool WebCurl::Request::getSSL() const { return this->verifySSL; }
-
+void WebCurl::Request::setSSL(bool SSL) { this->verifySSL = SSL; }
 void WebCurl::Request::addForm(const std::string &name,
                                const std::string &data) {
   auto tuple = std::make_tuple(name, data);
