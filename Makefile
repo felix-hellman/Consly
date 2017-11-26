@@ -6,7 +6,7 @@ LFLAGS = -lwebcurl -lcurl
 compile: webhandler.o
 
 
-install: test
+install: 
 	sudo cp libwebcurl.so /usr/lib
 	$(CC) $(CFLAGS_TEST) test/tester.cpp -o tester $(LFLAGS)
 	./test/test.sh
