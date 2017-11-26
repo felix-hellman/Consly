@@ -3,7 +3,8 @@
 !/src
 !/test
 !/includes
-
+!/examples
+!/examples/imgurupload
 
 !*.cpp
 !*.h

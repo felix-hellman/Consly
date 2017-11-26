@@ -1,24 +1,7 @@
-# WebCurl++
-C++ Library using Curl to simplify communicating with web api's 
-
-[![Build Status](https://travis-ci.org/felix-hellman/WebCurl.svg?branch=master)](https://travis-ci.org/felix-hellman/WebCurl)
-
-## Installation Ubuntu 17.10
-```bash
-sudo apt install build-essential libcurl4-gnutls-dev python
-git clone https://github.com/felix-hellman/WebCurl
-cd WebCurl
-make ; sudo make install
-cd ..
-rm -rf WebCurl
-```
-
-
-## Imgur Upload Image Example
-### imgurupload.cpp
-```cpp
 #include <iostream>
 #include <webcurl>
+
+std::string accesstoken = "***Your Access Token Here***";
 
 int main()
 {
@@ -51,7 +34,3 @@ int main()
 
 	return 0;
 }
-```
-```bash
-g++ -std=c++14 imgurupload.cpp -o imgurupload -lwebcurl -lcurl
-```
