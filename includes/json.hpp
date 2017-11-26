@@ -4,7 +4,7 @@
 #include <tuple>
 #include <iostream>
 
-namespace JSON
+namespace WebCurl
 {	
 	class JSONObject
 	{

@@ -1,15 +1,11 @@
 #include <webcurl>
 
-WebCurl::WebCurl() {
-  this->verifySSL = true;
+WebCurl::Handler::Handler() {
   curl_global_init(CURL_GLOBAL_DEFAULT);
 }
-WebCurl::WebCurl(bool verifySSL) {
-  this->verifySSL = verifySSL;
-  curl_global_cleanup();
-}
-WebCurl::~WebCurl() {}
-CURL *WebCurl::curlSetup(Request &req) const {
+
+WebCurl::Handler::~Handler() {}
+CURL *WebCurl::Handler::curlSetup(Request &req) const {
   CURL *curl = nullptr;
   curl = curl_easy_init();
   if (curl) {
@@ -23,7 +19,7 @@ CURL *WebCurl::curlSetup(Request &req) const {
   return curl;
 }
 
-int WebCurl::get(Request &req) const {
+int WebCurl::Handler::get(Request &req) const {
   CURLcode ret;
   CURL *curl = nullptr;
   curl = this->curlSetup(req);
@@ -35,7 +31,7 @@ int WebCurl::get(Request &req) const {
   }
   return ret;
 }
-int WebCurl::post(Request &req) const {
+int WebCurl::Handler::post(Request &req) const {
   CURLcode ret;
   CURL *curl = NULL;
   struct curl_slist *slist = NULL;
@@ -66,4 +62,38 @@ int WebCurl::post(Request &req) const {
     curl_slist_free_all(slist);
   }
   return ret;
+}
+
+
+size_t WebCurl::curlCallback(void *contents, size_t size, size_t nmemb, std::string *s) {
+  size_t newLength = size * nmemb;
+  size_t oldLength = s->size();
+  try {
+    s->resize(oldLength + newLength);
+  } catch (std::bad_alloc &e) {
+    return 0;
+  }
+
+  std::copy((char *)contents, (char *)contents + newLength,
+            s->begin() + oldLength);
+  return size * nmemb;
+}
+
+std::string WebCurl::percentEncode(const std::string &input){
+	std::vector<char> table{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9','A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' ,'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z','-', '.', '_', '~'};
+  std::string dst;
+  for(const auto &i : input){
+    bool found = false;
+    if (std::find(table.begin(), table.end(),i)!=table.end()){
+      dst += i;
+      found = true;
+    }
+    if(!found){
+      dst += '%';
+      std::stringstream stream;
+      stream << std::hex << (int)i;
+      dst += stream.str();
+    }
+  }
+  return dst;
 }

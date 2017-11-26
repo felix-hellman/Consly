@@ -22,8 +22,8 @@ rm -rf WebCurl
 
 int main()
 {
-	WebCurl w;
-	Request r1,r2;
+	WebCurl::Handler h;
+	WebCurl::Request r1,r2;
 
 	std::string auth = "authorization: Bearer " + accesstoken; //This is your api accesstoken
 	std::string imageURL_1 = "http://www.publicdomainpictures.net/pictures/210000/velka/statue-of-liberty-1485195728rRZ.jpg";
@@ -42,8 +42,8 @@ int main()
 	r2.addForm("description","Racoon!");
 
 	//We can also do multiple consecutive posts
-	w.post(r1);
-	w.post(r2);
+	h.post(r1);
+	h.post(r2);
 
 	//And read the status later
 	std::cout << r1.getBuffer() << std::endl;

@@ -17,15 +17,15 @@ int main(int argc, char ** argv){
 		vec.push_back(tup);
 	}
 
-	WebCurl w;
+	WebCurl::Handler h;
 	
-	Request r;
+	WebCurl::Request r;
 	r.setURL(serverURL);
 	for(auto &i: vec)
 		r.addForm(i);
-	w.post(r);
+	h.post(r);
 
-	auto result = JSON::parse(r.getBuffer());
+	auto result = WebCurl::parse(r.getBuffer());
 	
 	for(auto &i: result.elements)
 		std::cout << std::get<0>(i) << " " << std::get<1>(i) << std::endl;
