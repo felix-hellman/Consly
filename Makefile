@@ -1,6 +1,6 @@
 CC = $(CXX)
-CFLAGS =-std=c++14 -Wall -fPIC -I "src"
-CFLAGS_TEST =-std=c++14 -Wall -I "src"
+CFLAGS =-std=c++14 -Wall -fPIC -I "src" -I "includes"
+CFLAGS_TEST =-std=c++14 -Wall -I "src" -I "includes"
 LFLAGS = -lwebcurl -lcurl
 
 compile: webhandler.o
@@ -11,8 +11,7 @@ install: test
 	$(CC) $(CFLAGS_TEST) test/tester.cpp -o tester $(LFLAGS)
 	./test/test.sh
 	rm -rf ./tester
-	cp src/*.h /usr/include
-	cp src/*.hpp /usr/include
+	cp includes/* /usr/include
 
 webhandler.o: web.o request.o json.o
 	$(CC) $(CFLAGS) -c src/webhandler.cpp
