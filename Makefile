@@ -10,7 +10,9 @@ install: test
 	sudo cp libwebcurl.so /usr/lib
 	$(CC) $(CFLAGS_TEST) test/tester.cpp -o tester $(LFLAGS)
 	./test/test.sh
-	rm -rf ./tester	
+	rm -rf ./tester
+	cp src/*.h /usr/include
+	cp src/*.hpp /usr/include
 
 webhandler.o: web.o request.o json.o
 	$(CC) $(CFLAGS) -c src/webhandler.cpp
