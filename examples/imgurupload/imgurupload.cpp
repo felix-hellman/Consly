@@ -1,11 +1,11 @@
 #include <iostream>
-#include <webcurl>
+#include <consly>
 
 std::string accesstoken = "***Your Access Token Here***";
 
 int main(int argc, char ** argv) {
-  WebCurl::Handler h;
-  WebCurl::Request r1, r2;
+  Consly::Handler h;
+  Consly::Request r1, r2;
 
   std::string auth =
       "authorization: Bearer " + accesstoken;  // This is your api accesstoken
