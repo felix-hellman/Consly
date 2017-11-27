@@ -4,7 +4,7 @@
 #include <tuple>
 #include <vector>
 
-namespace WebCurl {
+namespace Consly {
 class JSONObject {
  public:
   std::string name;
@@ -28,4 +28,4 @@ class JSONObject {
   }
 };
 JSONObject parse(const std::string &buffer);
-}  // namespace WebCurl
+}  // namespace Consly

@@ -3,7 +3,7 @@
 #include <string>
 #include <tuple>
 #include <vector>
-namespace WebCurl {
+namespace Consly {
 class Request {
  private:
   std::string URL;
@@ -26,4 +26,4 @@ class Request {
   std::string &getBuffer();
   std::string *getBufferPointer();
 };
-}  // namespace WebCurl
+}  // namespace Consly

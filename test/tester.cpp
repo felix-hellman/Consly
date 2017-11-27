@@ -2,7 +2,7 @@
 #include <string>
 #include <tuple>
 #include <vector>
-#include <webcurl>
+#include <consly>
 #include "settings.h"
 
 int main(int argc, char **argv) {
@@ -15,14 +15,14 @@ int main(int argc, char **argv) {
     vec.push_back(tup);
   }
 
-  WebCurl::Handler h;
+  Consly::Handler h;
 
-  WebCurl::Request r;
+  Consly::Request r;
   r.setURL(serverURL);
   for (auto &i : vec) r.addForm(i);
   h.post(r);
 
-  auto result = WebCurl::parse(r.getBuffer());
+  auto result = Consly::parse(r.getBuffer());
 
   for (auto &i : result.elements)
     std::cout << std::get<0>(i) << " " << std::get<1>(i) << std::endl;

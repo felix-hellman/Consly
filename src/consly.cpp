@@ -1,9 +1,9 @@
-#include <webcurl>
+#include <consly>
 
-WebCurl::Handler::Handler() { curl_global_init(CURL_GLOBAL_DEFAULT); }
+Consly::Handler::Handler() { curl_global_init(CURL_GLOBAL_DEFAULT); }
 
-WebCurl::Handler::~Handler() {}
-CURL *WebCurl::Handler::curlSetup(Request &req) const {
+Consly::Handler::~Handler() {}
+CURL *Consly::Handler::curlSetup(Request &req) const {
   CURL *curl = nullptr;
   curl = curl_easy_init();
   if (curl) {
@@ -21,19 +21,23 @@ CURL *WebCurl::Handler::curlSetup(Request &req) const {
   return curl;
 }
 
-int WebCurl::Handler::get(Request &req) const {
+int Consly::Handler::get(Request &req) const {
   CURLcode ret;
   CURL *curl = nullptr;
+  struct curl_slist *slist = NULL;
   curl = this->curlSetup(req);
-
+  for (const auto &i : req.headers) {
+    slist = curl_slist_append(slist, i.c_str());
+  }
   if (curl) {
+    curl_easy_setopt(curl, CURLOPT_HTTPHEADER, slist);
     ret = curl_easy_perform(curl);
     curl_easy_cleanup(curl);
     curl = NULL;
   }
   return ret;
 }
-int WebCurl::Handler::post(Request &req) const {
+int Consly::Handler::post(Request &req) const {
   CURLcode ret;
   CURL *curl = NULL;
   struct curl_slist *slist = NULL;
@@ -64,7 +68,7 @@ int WebCurl::Handler::post(Request &req) const {
   return ret;
 }
 
-size_t WebCurl::curlCallback(void *contents, size_t size, size_t nmemb,
+size_t Consly::curlCallback(void *contents, size_t size, size_t nmemb,
                              std::string *s) {
   size_t newLength = size * nmemb;
   size_t oldLength = s->size();
@@ -79,7 +83,7 @@ size_t WebCurl::curlCallback(void *contents, size_t size, size_t nmemb,
   return size * nmemb;
 }
 
-std::string WebCurl::percentEncode(const std::string &input) {
+std::string Consly::percentEncode(const std::string &input) {
   std::vector<char> table{
       '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D',
       'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R',

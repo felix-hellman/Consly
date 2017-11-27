@@ -1,7 +1,7 @@
 #include "json.hpp"
 
-WebCurl::JSONObject WebCurl::parse(const std::string &buffer) {
-  WebCurl::JSONObject returnValue;
+Consly::JSONObject Consly::parse(const std::string &buffer) {
+  Consly::JSONObject returnValue;
 
   auto found = buffer.find("\"");
   found++;

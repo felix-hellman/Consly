@@ -9,7 +9,7 @@
 #include "json.hpp"
 #include "request.hpp"
 
-namespace WebCurl {
+namespace Consly {
 class Handler {
  public:
   Handler();
@@ -20,4 +20,4 @@ class Handler {
 };
 size_t curlCallback(void *contents, size_t size, size_t nmemb, std::string *s);
 std::string percentEncode(const std::string &input);
-}  // namespace WebCurl
+}  // namespace Consly
