@@ -1,4 +1,4 @@
-# WebCurl++
+# Consly
 C++ Library using Curl to simplify communicating with web api's
 
 [![Build Status](https://travis-ci.org/felix-hellman/WebCurl.svg?branch=master)](https://travis-ci.org/felix-hellman/WebCurl)
