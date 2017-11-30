@@ -1,7 +1,7 @@
 # Consly
 C++ Library using Curl to simplify communicating with web api's
 
-[![Build Status](https://travis-ci.org/felix-hellman/WebCurl.svg?branch=master)](https://travis-ci.org/felix-hellman/WebCurl)
+[![Build Status](https://travis-ci.org/felix-hellman/Consly.svg?branch=master)](https://travis-ci.org/felix-hellman/Consly)
 
 ## Installation Ubuntu 17.10
 ```bash
